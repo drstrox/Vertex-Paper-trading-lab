@@ -1,0 +1,367 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 10px 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap:9px;
+}
+
+.user-info span {
+    margin-right: 20px;
+}
+
+.actions .buy-btn, .actions .sell-btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.buy-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.sell-btn {
+    background-color: #F44336;
+    color: white;
+}
+
+.main-container {
+    display: flex;
+    flex: 1;
+}
+
+
+ main{
+    background-color:#151924 ;
+ }
+
+aside {
+    width: 250px;
+    background-color: #171b26;
+    padding: 20px;
+    border-right: 1px solid #e0e0e0;
+    overflow-y: auto;
+}
+
+.stock-list {
+    font-size: 20px;
+    text-transform: capitalize;
+    color: #44475b;
+    background-color: 4b4242;
+    padding-bottom: 30px;
+  
+}
+
+.stock-list:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .stock-info h1{
+
+    color: white;
+  }
+
+  .stock-list h2 {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: 1.2em;
+  }
+  
+.stock-list{
+    padding-top: 33px;
+  }
+  .stock-list ul {
+    
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .stock-list li {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #dbe2e3;
+    border-radius: 5px;
+  }
+
+
+.Search-stock {
+    display: flex;
+    background-color: #332828;
+    /* Removed padding property */
+    box-shadow: 0 2px 5px rgba(130, 120, 120, 0.1);
+    color: rgb(125, 117, 117);
+    /* Added overflow-x: hidden to hide scrollbar */
+    overflow-x: hidden;
+  }
+  
+  
+  .search-bar {
+     /* Use flexbox for responsive sizing */
+     flex: 1; /* Example: Adjust based on content */
+     display: flex;
+     align-items: center;
+  }
+  
+  
+  .search-bar input {
+    padding: 10px;
+    width: 0px;
+    margin-right: 10px;
+    margin-left: -7px;
+    border: none;
+    border-radius: 5px;
+    /* Adjust width based on content and other elements */
+    flex: 1; /* Example: Adjust based on content */
+  }
+  
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-bar button {
+    padding: 10px 20px;
+    background-color: #615e65;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+  }
+
+
+/* button */
+.tab-btn {
+    margin: 0px;
+    padding: 15px 26px;
+    margin-right: -54px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+  }
+  
+  .tab-btn::after {
+    content: "";
+    z-index: -8;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #5d1e1e;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+  
+  /* glow */
+  .tab-btn::before {
+    content: "";
+    background: linear-gradient(45deg,
+        #FF0000, #FF7300, #FFFB00, #48FF00,
+        #00FFD5, #002BFF, #FF00C8, #FF0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 8px;
+    opacity: 0;
+  }
+  
+  @keyframes glowing {
+    0% {
+      background-position: 0 0;
+    }
+  
+    50% {
+      background-position: 400% 0;
+    }
+  
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+  /* hover */
+  .tab-btn:hover::before {
+    opacity: 1;
+  }
+  
+  .tab-btn:active:after {
+    background: transparent;
+  }
+  
+  .tab-btn:active {
+    color: #000;
+    font-weight: bold;
+  }
+  
+
+
+
+.watchlist h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.watchlist ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.watchlist li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+}
+
+.watchlist li:hover {
+    background-color: #e0e0e0;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.stock-info {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.stock-info h1 {
+    font-size: 2em;
+    margin-right: 10px;
+}
+
+.stock-info .price {
+    font-size: 1.5em;
+    color: green;
+}
+
+.stock-info .change {
+    font-size: 1em;
+    color: green;
+}
+
+.tabs {
+    margin-top: 20px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    margin-right: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #e0e0e0;
+}
+
+.tab-btn:hover {
+    background-color: #d0d0d0;
+}
+
+.content {
+    margin-top: 20px;
+    flex: 1;
+}
+
+.tab-content {
+    display: none;
+}
+
+.terminal {
+    height: 600px; /* Increased height */
+    margin-top: 20px;
+    margin: 0;
+    padding: 0;
+}
+.tradingview-widget-container {
+    height: 120%;
+    width: 120%;
+    background-color: rgba(23, 22, 22, 0.781);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.tradingview-widget-copyright {
+    text-align: center;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.blue-text {
+    color: blue;
+}
+
+.order-section {
+    background-color: rgba(201, 172, 172, 0.339);
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgb(22 26 37);
+}
+
+.order-section h2 {
+    margin-top: 0;   
+}
+
+.order-section div {
+    margin-bottom: 10px;
+}
+
+.order-section label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.order-section select, .order-section input, .order-section button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.order-section button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.order-section button:hover {
+    background-color: #218838;
+}

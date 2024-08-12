@@ -1,0 +1,739 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  padding: 10px 20px;
+  border-bottom: 3px solid #000000;
+}
+
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.user-info span {
+  margin-right: 20px;
+}
+
+.actions .buy-btn,
+.actions .sell-btn {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.buy-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.sell-btn {
+  background-color: #F44336;
+  color: white;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+}
+
+aside {
+  width: 250px;
+  background-color: #1e222d;
+  padding: 20px;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+}
+
+.stock-list {
+  font-size: 20px;
+  text-transform: capitalize;
+  color: #44475b;
+  background-color: 4b4242;
+  padding-bottom: 30px;
+
+}
+
+.stock-list:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stock-list h2 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 1.2em;
+}
+
+.stock-list {
+  padding-top: 33px;
+}
+
+.stock-list ul {
+
+  list-style-type: none;
+  padding: 0;
+}
+
+.stock-list li {
+  margin: 5px 0;
+  padding: 10px;
+  background-color: #000000;
+  border-radius: 5px;
+}
+
+
+.Search-stock {
+  display: flex;
+  background-color: #332828;
+  /* Removed padding property */
+  box-shadow: 0 2px 5px rgba(130, 120, 120, 0.1);
+  color: rgb(125, 117, 117);
+  /* Added overflow-x: hidden to hide scrollbar */
+  overflow-x: hidden;
+}
+
+
+.search-bar {
+  /* Use flexbox for responsive sizing */
+  flex: 1;
+  /* Example: Adjust based on content */
+  display: flex;
+  align-items: center;
+}
+
+
+.search-bar input {
+  padding: 10px;
+  width: 0px;
+  margin-right: 10px;
+  margin-left: -7px;
+  border: none;
+  border-radius: 5px;
+  /* Adjust width based on content and other elements */
+  flex: 1;
+  /* Example: Adjust based on content */
+}
+
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  background-color: #615e65;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.watchlist h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.watchlist ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.watchlist li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+}
+
+.watchlist li:hover {
+  background-color: #e0e0e0;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #131722;
+  color:white;
+  overflow-y: auto;
+}
+
+.stock-info {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.stock-info h1 {
+  font-size: 2em;
+  margin-right: 10px;
+}
+
+.stock-info .price {
+  font-size: 1.5em;
+  color: green;
+}
+
+.stock-info .change {
+  font-size: 1em;
+  color: green;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  border: none;
+  outline: none;
+  color: #FFF;
+  background-color: #2a2e39;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.tab-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #FF0000, #FF7300, #FFFB00, #48FF00, #00FFD5, #002BFF, #FF00C8, #FF0000);
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tab-btn::after {
+  content: "";
+  position: absolute;
+  background: #2a2e39;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover::before {
+  opacity: 1;
+}
+
+.tab-btn:hover::after {
+  background: transparent;
+  opacity: 0;
+}
+
+.tab-btn:hover {
+  color: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.tab-btn:active {
+  transform: scale(0.95);
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+.tab-btn:hover {
+  animation: glowing 20s linear infinite;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tabs {
+      flex-direction: column;
+  }
+  
+  .tab-btn {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+}
+.flex {
+  display: flex;
+  gap: 50px;
+}
+
+
+.content {
+  margin-top: 20px;
+  flex: 1;
+}
+
+.tab-content {
+  display: none;
+}
+
+
+.new-info-nav-img {
+  width: 35px;
+  border-radius: 5px;
+  background-color: #000000;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+
+
+.a1_stock>p {
+  text-transform: capitalize;
+  font-size: 15px;
+  color: #a2808c;
+}
+
+.a3-index-image {
+  display: flex;
+  margin-top: 10px;
+  gap: 43px;
+  justify-content: center;
+}
+
+.in-news-div {
+  margin-top: 58px;
+}
+
+.a-in-news>button {
+  border: none;
+  background-color: #e5faf5;
+  color: #6ed9b6;
+
+  width: 80px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+.a-in-news>h4 {
+  margin: 0;
+  font-size: 20px;
+  text-transform: capitalize;
+  color: #44475b;
+}
+
+.top-sectors-div {
+  margin-top: 80px;
+}
+
+.a-top-sec>h4 {
+  margin: 0;
+  font-size: 20px;
+  text-transform: capitalize;
+  color: #44475b;
+}
+
+.a-top-sec>button {
+  border: none;
+  background-color: white;
+  color: #6ed9b6;
+  text-transform: uppercase;
+  font-size: 12px;
+  width: 80px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  gap: 34px;
+}
+
+.flex{
+  margin-top: 9px;
+}
+
+.flash-message {
+  animation: blinker 1s linear infinite;
+  max-height: 141px;
+}
+
+.tradingview-widget-container {
+  height: 206%;
+  width: 75%;
+  background-color: rgba(23, 22, 22, 0.781);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.ind {
+  top: 100%;
+  position: sticky;
+}
+
+
+.indices-section-widget{
+  margin-top: 300px;
+
+}
+
+
+
+
+
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap:9px;
+}
+
+.user-info span {
+  margin-right: 20px;
+}
+
+.actions .buy-btn, .actions .sell-btn {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.buy-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.sell-btn {
+  background-color: #F44336;
+  color: white;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+}
+
+aside {
+  width: 250px;
+  background-color: ;
+  padding: 20px;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+}
+
+.stock-list {
+  font-size: 20px;
+  text-transform: capitalize;
+  color: #44475b;
+  background-color: 4b4242;
+  padding-bottom: 30px;
+
+}
+
+.stock-list:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stock-list h2 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: 1.2em;
+}
+
+.stock-list{
+  padding-top: 33px;
+}
+.stock-list ul {
+  
+  list-style-type: none;
+  padding: 0;
+}
+
+.stock-list li {
+  margin: 5px 0;
+  padding: 10px;
+  background-color: #dbe2e3;
+  border-radius: 5px;
+}
+
+
+.Search-stock {
+  display: flex;
+  background-color: #332828;
+  /* Removed padding property */
+  box-shadow: 0 2px 5px rgba(130, 120, 120, 0.1);
+  color: rgb(125, 117, 117);
+  /* Added overflow-x: hidden to hide scrollbar */
+  overflow-x: hidden;
+}
+
+
+.search-bar {
+   /* Use flexbox for responsive sizing */
+   flex: 1; /* Example: Adjust based on content */
+   display: flex;
+   align-items: center;
+}
+
+
+.search-bar input {
+  padding: 10px;
+  width: 0px;
+  margin-right: 10px;
+  margin-left: -7px;
+  border: none;
+  border-radius: 5px;
+  /* Adjust width based on content and other elements */
+  flex: 1; /* Example: Adjust based on content */
+}
+
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  background-color: #615e65;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+.watchlist h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.watchlist ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.watchlist li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+}
+
+.watchlist li:hover {
+  background-color: #e0e0e0;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.stock-info {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.stock-info h1 {
+  font-size: 2em;
+  margin-right: 10px;
+}
+
+.stock-info .price {
+  font-size: 1.5em;
+  color: green;
+}
+
+.stock-info .change {
+  font-size: 1em;
+  color: green;
+}
+
+.tabs {
+  margin-top: 20px;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #e0e0e0;
+}
+
+.tab-btn:hover {
+  background-color: #d0d0d0;
+}
+
+.content {
+  margin-top: 20px;
+  flex: 1;
+}
+
+.tab-content {
+  display: none;
+}
+
+.terminal {
+  height: 600px; /* Increased height */
+  margin-top: 20px;
+  margin: 0;
+  padding: 0;
+}
+.tradingview-widget-container {
+  height: 120%;
+  width: 120%;
+  background-color: rgba(23, 22, 22, 0.781);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.tradingview-widget-copyright {
+  text-align: center;
+  padding: 5px;
+  font-size: 12px;
+}
+.blue-text {
+  color: blue;
+}
+
+.order-section {
+  background-color: rgba(201, 172, 172, 0.339);
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(246, 242, 242, 0.904);
+}
+.order-section h2 {
+  margin-top: 0;
+}
+.order-section div {
+  margin-bottom: 10px;
+}
+.order-section label {
+  display: block;
+  margin-bottom: 5px;
+}
+.order-section select, .order-section input, .order-section button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.order-section button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.order-section button:hover {
+  background-color: #218838;
+}
+
+/* General styling for the stock list */
+.stock-list {
+  margin: 20px;
+  padding: 20px;
+  background-color: #1e222d;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stock-list h2 {
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  font-size: 22.5px;
+  margin-bottom: 15px;
+}
+
+/* Styling for the unordered list */
+.stock-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Styling for each list item */
+.stock-list li {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Styling for the link inside the list item */
+.stock-list li a {
+  text-decoration: none;
+  color: #007BFF;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: 'Verdana', sans-serif;
+}
+/* Hover effect on list items */
+.stock-list li:hover {
+  background-color: #007BFF;
+  transform: scale(1.02);
+}
+
+/* Hover effect on the link text */
+.stock-list li a:hover {
+  color: #fff; /* White color on hover */
+}

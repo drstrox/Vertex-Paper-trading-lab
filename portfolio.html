@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="/loggedin.css">
+    <style>
+           .port {
+            background-color: #131722;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .port h1 {
+            margin: 0;
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .port-summary {
+            display: flex;
+            gap: 20px;
+        }
+
+        .summary-item {
+            background-color: #2a2e39;
+            border-radius: 8px;
+            padding: 15px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .summary-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .summary-item p {
+            margin: 0;
+            font-size: 14px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .summary-item .value {
+            font-size: 19px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        #total-balance {
+            color: #2980b9;
+        }
+
+        #total-profit-loss.positive {
+            color: #27ae60;
+        }
+
+        #total-profit-loss.negative {
+            color: #e74c3c;
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 768px) {
+            .port {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .port-summary {
+                margin-top: 20px;
+                width: 100%;
+            }
+
+            .summary-item {
+                flex: 1;
+            }
+        }
+
+        /* Table styles */
+        #portfolio-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        #portfolio-table th,
+        #portfolio-table td {
+            padding: 15px 20px;
+            text-align: left;
+        }
+
+        #portfolio-table th {
+            background-color: #2c3e50;
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            border-bottom: 3px solid #3498db;
+        }
+
+        #portfolio-table td {
+            color:black;
+            border-bottom: 1px solid #ecf0f1;
+            font-size: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        #portfolio-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        #portfolio-table tr:nth-child(even) {
+            color:black;
+            background-color: #f9fafb;
+        }
+
+        #portfolio-table tr:hover td {
+            
+            background-color: #e8f6ff;
+        }
+
+        /* Style for stock symbols */
+        #portfolio-table td:nth-child(2) {
+            font-weight: bold;
+            color: #2980b9;
+        }
+
+        /* Style for profit/loss column */
+        #portfolio-table td:nth-child(9) {
+            font-weight: bold;
+        }
+
+        #portfolio-table td:nth-child(9)[data-value^="-"] {
+            color: #e74c3c;
+        }
+
+        #portfolio-table td:nth-child(9):not([data-value^="-"]) {
+            color: #27ae60;
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 768px) {
+            #portfolio-table {
+                font-size: 14px;
+            }
+
+            #portfolio-table th,
+            #portfolio-table td {
+                padding: 10px 12px;
+            }
+
+            #portfolio-table th {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <div class="logo"><img src="/logo.svg" style="width: 90px; height: 55px;" alt=""></div>
+        <a style="text-decoration: none; color:black" href="/dashboard">
+            <div class="user-info">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24" height="24"
+                    color="#ffffff" fill="none">
+                    <path
+                        d="M13 21.9506C12.6711 21.9833 12.3375 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 12.3375 21.9833 12.6711 21.9506 13"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    <path
+                        d="M7.5 17C8.90247 15.5311 11.0212 14.9041 13 15.1941M14.4951 9.5C14.4951 10.8807 13.3742 12 11.9915 12C10.6089 12 9.48797 10.8807 9.48797 9.5C9.48797 8.11929 10.6089 7 11.9915 7C13.3742 7 14.4951 8.11929 14.4951 9.5Z"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    <circle cx="18.5" cy="18.5" r="3.5" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+
+
+        </a>
+        </div>
+
+    </header>
+
+    <div class="main-container">
+        <aside>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search US Stocks">
+                <button class="tab-btn" onclick="search()">Search</button>
+            </div>
+            <div class="stock-list">
+                <h2>Searched Stock</h2>
+                <ul id="stockList"></ul>
+            </div>
+            ,<div>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    0
+                    <script type="text/javascript"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+                            {
+                                "colorTheme": "dark",
+                                    "isTransparent": false,
+                                        "width": "250",
+                                            "height": "550",
+                                                "locale": "en",
+                                                    "importanceFilter": "-1,0,1",
+                                                        "countryFilter": "ar,au,br,ca,cn,fr,de,in,id,it,jp,kr,mx,ru,sa,za,tr,gb,us,eu"
+                            }
+                        </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </div>
+        </aside>
+
+
+        <main>
+            <div class="tabs">
+                <button class="tab-btn" onclick="location.href='/chartingtools.html'">Charting Tools</button>
+                <button class="tab-btn" onclick="location.href='/portfolio.html'">Portfolio</button>
+                <button class="tab-btn" onclick="location.href='/stockscreener.html'">Stock Screener</button>
+                <button class="tab-btn" onclick="location.href='/technicalanalysis.html'">Technical Analysis</button>
+                <button class="tab-btn" onclick="location.href='/news.html'">Top Stories</button>
+            </div>
+
+
+            <div class="port">
+                <h1>Your Portfolio</h1>
+                <div class="port-summary">
+                    <div class="summary-item">
+                        <p>Total Balance</p>
+                        $<span class="value" id="total-balance">Loading...</span>
+                    </div>
+                    <div class="summary-item">
+                        <p>Total Profit/Loss</p>
+                        $<span class="value" id="total-profit-loss">Loading...</span>
+                    </div>
+                </div>
+            </div>
+
+            <table class="portfolio-table" id="portfolio-table" border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Stock Symbol</th>
+                        <th>Stock Name</th>
+                        <th>Order Type</th>
+                        <th>Order Mode</th>
+                        <th>Quantity</th>
+                        <th>Price at Transaction</th>
+                        <th>Live Price</th>
+                        <th>Profit/Loss</th>
+                        <th>Date and Time of Purchase</th>
+                    </tr>
+                </thead>
+
+                <tbody id="portfolio-body">
+
+                </tbody>
+            </table>
+
+        </main>
+
+    </div>
+
+    <script src="/logginedscript.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
+    <script type="module" src="/portfolio.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backtesting Tab</title>
+    <link rel="stylesheet" href="/back_testing.css">
+</head>
+<body>
+    <div class="main" style="width: 70%;">
+
+        <div class="left">
+            <!-- <img src="patternImg.0edf5760.svg" alt=""> -->
+            <img style="height:438px ;
+            width: 100%;
+            object-fit : cover;"
+                src="/backtesting.jpg">
+
+            </div>
+
+
+        </div>
+     
+
+    <div class="container">
+        <h1>Backtesting Tab</h1>
+        <header>
+            <img src="/logo.svg" alt="Logo" class="logo">
+        </header>
+        <input type="file" id="csvFileInput" accept=".csv">
+        <button onclick="runBacktest()">Run Backtest</button>
+        <div id="results">
+            <h2>Results</h2>
+            <p id="profit"></p>
+            <p id="sharpeRatio"></p>
+        </div>
+    </div>
+    <script src="/backtesting.jpg"></script>
+</body>
+</html>
