@@ -1,6 +1,6 @@
 # Trading Website Project
 
-This project is a trading website that uses Flask.
+This project is a Python based Trading Web Platform that uses Flask.
 
 ## Requirements
 
