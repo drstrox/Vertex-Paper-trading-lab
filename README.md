@@ -44,6 +44,7 @@ This project is a Python based Trading Web Platform that uses Flask.
 - Make sure you have Flask installed. If not, you can install it using the `requirements.txt` file as shown above.
 - For any issues or contributions, please open an issue or submit a pull request.
 
-## License
+## Contributors
 
-This project is licensed under the MIT License.
+@drstrox
+@vansh2052
